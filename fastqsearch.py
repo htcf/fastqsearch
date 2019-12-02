@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
-from multiprocessing import Pool, Queue, Process
 import argparse
 import gzip
+from multiprocessing import Pool, Queue, Process
 import re
 import sys
 import time
@@ -26,7 +26,6 @@ def get_seqs(fastq_file, chunk_size=40):
             data = data[m.end():]
         if seqs:
             yield seqs
-    print('get_seqs done')
 
 def worker(task_queue, done_queue, keys):
     lookup = dict([(k,0) for k in keys])
